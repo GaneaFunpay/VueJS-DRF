@@ -19,22 +19,19 @@ class ProductListView(viewsets.ModelViewSet):
 
 class ProductCreateView(APIView):
     def post(self, request, *args, **kwargs):
-        product_serializer = serializers.ProductSerializer(data=self.request.data)
-        if product_serializer.is_valid():
+        product_serializer = serializers.ProductSerializer(data=request.data)
+        if product_serializer.is_valid(raise_exception=True):
             _product = product_serializer.save()
-            for image in self.request.FILES.getlist('images'):
-                product_image = serializers.ProductImageSerializer(
-                    data={
-                        'product': _product.id,
-                        'image': image
-                    }
-                )
-                if product_image.is_valid():
-                    product_image.save()
-                else:
-                    return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        else:
-            return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            photos_data = [
+                {
+                    'product': _product.id,
+                    'image': image
+                }
+                for image in self.request.FILES.getlist('images')
+            ]
+            images_serializer = serializers.ProductImageSerializer(data=photos_data, many=True)
+            if images_serializer.is_valid(raise_exception=True):
+                images_serializer.save()
         return Response(serializers.ProductDetailsSerializer(_product).data, status=status.HTTP_201_CREATED)
 
 
@@ -58,7 +55,6 @@ class ProductImageDeleteView(generics.DestroyAPIView):
     serializer_class = serializers.ProductImageSerializer
 
     def perform_destroy(self, instance):
-        print('abobapidor')
         instance.image.delete(save=True)
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

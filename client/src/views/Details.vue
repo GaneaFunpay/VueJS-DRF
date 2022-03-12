@@ -32,7 +32,7 @@
         </div>
         <hr>
         <router-link class="btn btn-primary" :to="linkOpen">Edit</router-link>
-        <button class="btn btn-danger" style="margin-left: 1em;" v-on:click="Delete">Delte</button>
+        <button class="btn btn-danger" style="margin-left: 1em;" v-on:click="Delete">Delete</button>
       </div><!-- /.blog-post -->
     </div>
   </div><!-- /.blog-main -->

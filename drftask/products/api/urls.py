@@ -5,17 +5,16 @@ from rest_framework import routers
 
 from products.api.views import views
 
+
 router = routers.DefaultRouter()
-router.register('api/v1/product', views.ProductListView, basename="api/v1/product")
-
-
+router.register('product', views.ProductListView, basename="product")
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/v1/product_create', views.ProductCreateView.as_view()),
-    path('api/v1/product_detail/<int:pk>', views.ProductRetrieveView.as_view()),
-    path('api/v1/product_update/<int:pk>', views.ProductUpdateView.as_view()),
-    path('api/v1/product_delete/<int:pk>', views.ProductDeleteView.as_view()),
-    path('api/v1/image_delete/<int:pk>', views.ProductImageDeleteView.as_view()),
-    path('api/v1/image_create', views.ProductImageCreateView.as_view()),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('product_create', views.ProductCreateView.as_view()),
+    path('product_detail/<int:pk>', views.ProductRetrieveView.as_view()),
+    path('product_update/<int:pk>', views.ProductUpdateView.as_view()),
+    path('product_delete/<int:pk>', views.ProductDeleteView.as_view()),
+    path('image_delete/<int:pk>', views.ProductImageDeleteView.as_view()),
+    path('image_create', views.ProductImageCreateView.as_view()),
+]
