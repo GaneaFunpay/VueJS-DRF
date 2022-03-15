@@ -1,5 +1,5 @@
 # Vue-DRF
-#Requirements:
+# Requirements:
 NodeJS: v16.13.1
 VueJS: vue/cli 5.0.1
 Python: 3.6.0
