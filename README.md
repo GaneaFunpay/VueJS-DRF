@@ -4,10 +4,10 @@ NodeJS: v16.13.1, <br />
 VueJS: vue/cli 5.0.1, <br />
 Python: 3.6.0 
 # 1) PostgreSQL Database
-'NAME': 'base1',
-'USER': 'postgres',
-'PASSWORD': '1111',
-'HOST': 'localhost',
+'NAME': 'base1', <br />
+'USER': 'postgres', <br />
+'PASSWORD': '1111', <br />
+'HOST': 'localhost', <br />
 'PORT': '5432'
 # 2) Django
 `pip3 install -r requiremets.txt`
