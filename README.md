@@ -1,7 +1,7 @@
 # Vue-DRF
 # Requirements:
-NodeJS: v16.13.1,
-VueJS: vue/cli 5.0.1,
+NodeJS: v16.13.1, <br />
+VueJS: vue/cli 5.0.1, <br />
 Python: 3.6.0 
 # 1) PostgreSQL Database
 'NAME': 'base1',
