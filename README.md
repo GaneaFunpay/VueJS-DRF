@@ -14,5 +14,6 @@ Python: 3.6.0
 `python manage.py migrate`
 `python manage.py runserver`
 # 3) VueJS
-`npm install vue` 
+`npm install vue`
+`npm install axios`
 `npm run serve`
